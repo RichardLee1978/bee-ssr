@@ -1,0 +1,29 @@
+{
+  "name": "bitbee-ssr",
+  "version": "1.0.0",
+  "description": "power by nuxt",
+  "main": "index.js",
+  "scripts": {
+    "dev": "backpack dev",
+    "build": "nuxt build && backpack build",
+    "start": "cross-env NODE_ENV=production node build/main.js"
+  },
+  "author": "RichardLee1978",
+  "license": "MIT",
+  "keywords": [
+    "nuxt",
+    "vue",
+    "ssr",
+    "bitbee"
+  ],
+  "dependencies": {
+    "backpack-core": "^0.7.0",
+    "cross-env": "^5.2.0",
+    "koa": "^2.5.2",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "nuxt": "^1.4.2",
+    "vux": "^2.9.2",
+    "vux-loader": "^1.2.9"
+  }
+}
