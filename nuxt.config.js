@@ -19,6 +19,7 @@ module.exports = {
           }
       ],
       build: {
+        vendor: ['axios'],
         extend(config, { isDev, isClient }) {
           const configs = vuxLoader.merge(config, {
             options: {

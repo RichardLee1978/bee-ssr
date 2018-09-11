@@ -17,6 +17,7 @@
     "bitbee"
   ],
   "dependencies": {
+    "axios": "^0.18.0",
     "backpack-core": "^0.7.0",
     "cross-env": "^5.2.0",
     "koa": "^2.5.2",
