@@ -13,13 +13,22 @@ module.exports = {
         'vux/src/styles/1px.less'
       ],
       plugins:[
-        {
+          {
             src: '~/plugins/vux-components',
+            ssr: true
+          },
+          {
+            src: '~/plugins/datadiff',
+            ssr: true
+          },
+          {
+            src: '~/plugins/datetimediff',
             ssr: true
           }
       ],
+     
       build: {
-        vendor: ['axios'],
+        
         extend(config, { isDev, isClient }) {
           const configs = vuxLoader.merge(config, {
             options: {
@@ -39,6 +48,11 @@ module.exports = {
             {
               name:'home',
               path:'',
+              component: path.resolve(__dirname, 'pages/home.vue')
+            },
+            {
+              name:'art-cate',
+              path:'/art-:id',
               component: path.resolve(__dirname, 'pages/home.vue')
             },
             {

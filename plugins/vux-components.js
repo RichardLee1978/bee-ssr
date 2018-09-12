@@ -16,7 +16,8 @@ import {
     XButton,
     Search,
     Panel,
-    Card
+    Card,
+    ViewBox
 } from 'vux'
 
 Vue.component('group', Group)
@@ -37,3 +38,4 @@ Vue.component('x-button',XButton);
 Vue.component('search',Search);
 Vue.component('panel',Panel);
 Vue.component('card',Card);
+Vue.component('view-box',ViewBox);
