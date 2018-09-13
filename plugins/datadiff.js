@@ -6,9 +6,9 @@ export const articleListDiff = (lists)=>{
         item.desc = item.abstract
         item.url = '/d/'+item.id
         item.meta = {
-            source:item.author,
+            source:item.author.length>5?item.author.substr(0,5)+'...':item.author,
             date:DateDiff(item.releaseTime),
-            other:'阅读数:'+item.readCount+'-喜欢:'+item.likeCount+'-评论:'+item.commentCount
+            other:'阅读数:'+item.readCount
         }
 
     });

@@ -1,18 +1,26 @@
 <template>
 <div style="height:100%;">
   <!-- <x-header style="background-color:#04BE02;">比特蜜蜂</x-header> -->
-   <search
+  <flexbox :gutter='2' :align="'center'" :justify="'center'" style='background-color:#EFEFF4;'>
+    <flexbox-item  :span='1' >
+      <x-icon style="display: block;margin: 0 auto;"  type="android-person" class="ion-logo-android" size="30"></x-icon>
+    </flexbox-item>
+    <flexbox-item :span='11'>
+      <search
       auto-scroll-to-top
       :placeholder="'搜索'"
      
       ref="search">
       </search>
+    </flexbox-item>
+  </flexbox>
+   
       
     <tab>
       <tab-item @on-item-click="changetab(item.id)" v-for="item in categorylist" :key="'key'+item.id" :selected="item.id===curID">{{ item.category }}</tab-item>
     </tab>
     <view-box>
-      <panel :footer="footer" :list="lists.data" :type="type" ></panel>
+      <panel  :list="lists.data" :type="type" ></panel>
     </view-box>
    
   
@@ -23,15 +31,15 @@
       </tabbar-item>
       <tabbar-item show-dot>
        
-        <span slot="label">Message</span>
+        <span slot="label">新闻</span>
       </tabbar-item>
       <tabbar-item  link="/component/demo">
        
-        <span slot="label">Explore</span>
+        <span slot="label">快讯</span>
       </tabbar-item>
       <tabbar-item badge="2">
         <img slot="icon" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAAAXNSR0IArs4c6QAAAH5JREFUaAXt17ERgDAIAEDiKs5i4zlERnOJVO7iKvFsc0fvmacDGvikIUIQIECAAIFUoGSdtV6t99iz/ufqJdp9bsc41zIW5AQIECBAgAABAgQIECDwCrgH/QMCBAgQIECAAAECBAjMKeAenPPdbU2AAAECBAgQIECAAIHfCzxT3RUKkM/E+AAAAABJRU5ErkJggg=='/>
-        <span slot="label">News</span>
+        <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
 </div>
@@ -68,8 +76,11 @@ export default {
       }
     },
     mounted(){
-      //console.log(this.$store)
-      this.$store.dispatch('article/getAuto',{rank:2,page:1})
+      //console.log(this.$store.state)
+      if(this.$store.state.article.rank==0 || this.$store.state.article.id==0) {
+        this.$store.dispatch('article/getAuto',{rank:2,page:1})
+      }
+      
       // if(this.$route.params.id) {
       //    this.$store.dispatch('article/get',{rank:this.$store.state.article.rank,id:this.$route.params.id,page:1})
       // } else {
