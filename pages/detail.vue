@@ -24,6 +24,7 @@
 </style>
 <script>
 import axios from '~/plugins/http'
+import {DateDiff} from '~/plugins/datetimediff' 
 export default {
     mounted(){
         if(this.$route.params.id){
@@ -31,7 +32,9 @@ export default {
                 .then(res=>{
                     if(res.status ==200) {
                         this.detail = res.data.data;
+                        this.detail.releaseTime = DateDiff(res.data.data.releaseTime);
                     }
+                    
                 })
         }
         

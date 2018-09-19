@@ -47,13 +47,23 @@ module.exports = {
           routes.push(
             {
               name:'home',
-              path:'',
+              path:'/',
               component: path.resolve(__dirname, 'pages/home.vue')
             },
             {
               name:'art-cate',
               path:'/art-:id',
               component: path.resolve(__dirname, 'pages/home.vue')
+            },
+            {
+              name:'news',
+              path:'/news',
+              component: path.resolve(__dirname, 'pages/news.vue')
+            },
+            {
+              name:'news-cate',
+              path:'/news-:id',
+              component: path.resolve(__dirname, 'pages/news.vue')
             },
             {
               name:'detail',

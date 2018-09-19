@@ -11,8 +11,8 @@ export const state = () => ({
     category:[],
     rank:0,
     id:0,
-    page:1
-    
+    page:1,
+    channel:"home"
   })
   export const mutations = {
     SET_LIST(state,lists) {
@@ -26,6 +26,9 @@ export const state = () => ({
     },
     SET_ID(state,id) {
       state.id = id;
+    },
+    SET_CHANNEL(state,channel) {
+      state.channel = channel;
     }
   }
   export const getters = {
@@ -52,12 +55,14 @@ export const state = () => ({
             commit('SET_CATEGORY',cate.data.data);
             commit('SET_ID',cate.data.data[0].id);
             commit('SET_RANK',rank)
+            commit('SET_CHANNEL','news');
             id_ = cate.data.data[0].id;
 
         } else if(rank==2) {
             commit('SET_CATEGORY',cate.data.data[0].sons);
             commit('SET_ID',cate.data.data[0].sons[0].id);
             commit('SET_RANK',rank)
+            commit('SET_CHANNEL','home');
             id_ = cate.data.data[0].sons[0].id;
         }
         const article =await axios.get('/articleCategory/getArticlesByCategoriesId/'+rank+'/'+id_+'/1/20/'+page)

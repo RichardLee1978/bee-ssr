@@ -25,11 +25,11 @@
    
   
    <tabbar style="position:fixed;bottom:0;left:0;z-index:10;">
-      <tabbar-item :selected='curIsSelected.home.selected' link='/'>
-         
+      <tabbar-item  :selected='curIsSelected.home.selected' link='/'>
+        
         <span slot="label">首页</span>
       </tabbar-item>
-      <tabbar-item :selected='curIsSelected.news.selected' link="/news">
+      <tabbar-item  :selected='curIsSelected.news.selected' link='/news'>
        
         <span slot="label">新闻</span>
       </tabbar-item>
@@ -38,7 +38,7 @@
         <span slot="label">快讯</span>
       </tabbar-item>
       <tabbar-item badge="2">
-        
+      
         <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
@@ -53,7 +53,6 @@ html,body {
 <script>
 import {mapState} from 'vuex';
 export default {
-   
     computed: {
       ...mapState({
         lists: state => {
@@ -118,8 +117,8 @@ export default {
     },
     mounted(){
       //console.log(this.$store.state)
-      if(this.$store.state.article.rank==0 || this.$store.state.article.rank==1) {
-        this.$store.dispatch('article/getAuto',{rank:2,page:1})
+      if(this.$store.state.article.rank==0 || this.$store.state.article.rank==2) {
+        this.$store.dispatch('article/getAuto',{rank:1,page:1})
       }
       
       // if(this.$route.params.id) {
