@@ -18,9 +18,11 @@ import {
     Panel,
     Card,
     ViewBox,
-    Qrcode
+    Qrcode,
+    XInput
 } from 'vux'
 import FooterBar from '~/components/footer'
+import SearchTop from '~/components/search-top.vue'
 Vue.component('group', Group)
 Vue.component('cell', Cell)
 Vue.component('actionsheet', Actionsheet)
@@ -41,4 +43,7 @@ Vue.component('panel',Panel);
 Vue.component('card',Card);
 Vue.component('view-box',ViewBox);
 Vue.component('qrcode',Qrcode);
+Vue.component('x-input',XInput);
+
 Vue.component('footer-bar',FooterBar);
+Vue.component('search-top',SearchTop);

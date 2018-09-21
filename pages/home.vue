@@ -1,21 +1,6 @@
 <template>
 <div style="height:100%;">
-  <!-- <x-header style="background-color:#04BE02;">比特蜜蜂</x-header> -->
-  <flexbox :gutter='2' :align="'center'" :justify="'center'" style='background-color:#EFEFF4;'>
-    <flexbox-item  :span='1' >
-      <x-icon style="display: block;margin: 0 auto;"  type="android-person" class="ion-logo-android" size="30"></x-icon>
-    </flexbox-item>
-    <flexbox-item :span='11'>
-      <search
-      auto-scroll-to-top
-      :placeholder="'搜索'"
-     
-      ref="search">
-      </search>
-    </flexbox-item>
-  </flexbox>
-   
-      
+  <search-top></search-top>  
     <tab>
       <tab-item @on-item-click="changetab(item.id)" v-for="item in categorylist" :key="'key'+item.id" :selected="item.id===curID">{{ item.category }}</tab-item>
     </tab>

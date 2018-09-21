@@ -46,7 +46,7 @@ module.exports = {
         extendRoutes (routes) {
           routes.push(
             {
-              name:'home',
+              name:'default',
               path:'/',
               component: path.resolve(__dirname, 'pages/home.vue')
             },
@@ -66,12 +66,12 @@ module.exports = {
               component: path.resolve(__dirname, 'pages/news.vue')
             },
             {
-              name:'detail',
+              name:'article-detail',
               path:'/d/:id',
               component: path.resolve(__dirname, 'pages/detail.vue')
             },
             {
-              name:'user',
+              name:'user-center',
               path:'/user',
               component: path.resolve(__dirname, 'pages/user/center.vue')
             },
@@ -79,6 +79,16 @@ module.exports = {
               name:'user',
               path:'/user/invite',
               component: path.resolve(__dirname, 'pages/user/invite.vue')
+            },
+            {
+              name:'user-login',
+              path:'/login',
+              component: path.resolve(__dirname, 'pages/login.vue')
+            },
+            {
+              name:'user-register',
+              path:'/register',
+              component: path.resolve(__dirname, 'pages/register.vue')
             },
             {
               name: 'all',
