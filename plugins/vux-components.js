@@ -17,7 +17,8 @@ import {
     Search,
     Panel,
     Card,
-    ViewBox
+    ViewBox,
+    Qrcode
 } from 'vux'
 import FooterBar from '~/components/footer'
 Vue.component('group', Group)
@@ -39,5 +40,5 @@ Vue.component('search',Search);
 Vue.component('panel',Panel);
 Vue.component('card',Card);
 Vue.component('view-box',ViewBox);
-
+Vue.component('qrcode',Qrcode);
 Vue.component('footer-bar',FooterBar);
