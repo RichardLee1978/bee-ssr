@@ -71,6 +71,11 @@ module.exports = {
               component: path.resolve(__dirname, 'pages/detail.vue')
             },
             {
+              name:'user',
+              path:'/user',
+              component: path.resolve(__dirname, 'pages/user/center.vue')
+            },
+            {
               name: 'all',
               path: '*',
               component: path.resolve(__dirname, 'pages/404.vue')

@@ -23,25 +23,8 @@
       <panel  :list="lists.data" :type="type" @on-img-error="onImgError"></panel>
     </view-box>
    
-  
-   <tabbar style="position:fixed;bottom:0;left:0;z-index:10;">
-      <tabbar-item :selected='curIsSelected.home.selected' link='/'>
-         
-        <span slot="label">首页</span>
-      </tabbar-item>
-      <tabbar-item :selected='curIsSelected.news.selected' link="/news">
-       
-        <span slot="label">新闻</span>
-      </tabbar-item>
-      <tabbar-item  link="/component/demo">
-       
-        <span slot="label">快讯</span>
-      </tabbar-item>
-      <tabbar-item badge="2">
-        
-        <span slot="label">我的</span>
-      </tabbar-item>
-    </tabbar>
+  <footer-bar :cur="curIsSelected"></footer-bar>
+   
 </div>
 </template>
 <style lang='less'>
@@ -52,8 +35,9 @@ html,body {
 </style>
 <script>
 import {mapState} from 'vuex';
+
 export default {
-   
+    
     computed: {
       ...mapState({
         lists: state => {

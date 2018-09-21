@@ -19,7 +19,7 @@ import {
     Card,
     ViewBox
 } from 'vux'
-
+import FooterBar from '~/components/footer'
 Vue.component('group', Group)
 Vue.component('cell', Cell)
 Vue.component('actionsheet', Actionsheet)
@@ -39,3 +39,5 @@ Vue.component('search',Search);
 Vue.component('panel',Panel);
 Vue.component('card',Card);
 Vue.component('view-box',ViewBox);
+
+Vue.component('footer-bar',FooterBar);
