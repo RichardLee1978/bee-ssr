@@ -1,7 +1,7 @@
 <template>
 <div style="height:100%;">
   <search-top></search-top>  
-    <tab>
+    <tab active-color="#1fac89" bar-active-color='#1fac89'>
       <tab-item @on-item-click="changetab(item.id)" v-for="item in categorylist" :key="'key'+item.id" :selected="item.id===curID">{{ item.category }}</tab-item>
     </tab>
     <view-box>
