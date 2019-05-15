@@ -5,13 +5,13 @@
         </div>
         <div class="login-box">
             <group title="手机">
-                <x-input   v-model="nickName" :max="13" mask="999 9999 9999" is-type="china-mobile" placeholder="输入手机号"></x-input>
+                <x-input   v-model="phone" :max="13" mask="999 9999 9999" is-type="china-mobile" placeholder="输入手机号"></x-input>
             </group>
             <group title="密码">
-                <x-input  type="password" v-model="maskValue"   placeholder="输入密码"></x-input>
+                <x-input  type="password" v-model="Password"   placeholder="输入密码"></x-input>
             </group>
              <div style="padding:15px;">
-                    <x-button style="background:#1fac89;"  type="primary">登录</x-button>
+                    <x-button style="background:#1fac89;" @click.native='postdata'  type="primary">登录</x-button>
                     
             </div>
              <flexbox style="margin:0px auto;">
@@ -44,6 +44,7 @@
     }
 </style>
 <script>
+import axios from 'axios'
 export default {
      data () {
         return {
@@ -73,8 +74,17 @@ export default {
         maxValue: '',
         maskValue: '',
         maskValue2: '',
-        nickName:''
+        phone:'',
+        Password:''
         }
+    },
+    methods:{
+       async postdata(){
+            const login = await axios.post('/login',{Password:this.password,phone:'13456789000'});
+            console.log(login);
+        }
+        
     }
+
 }
 </script>

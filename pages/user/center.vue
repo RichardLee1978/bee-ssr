@@ -40,7 +40,7 @@
 
 <script>
     export default {
-
+        middleware: 'auth',
         computed:{
             curIsSelected(){
                  return {

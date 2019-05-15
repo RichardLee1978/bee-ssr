@@ -50,6 +50,7 @@
 
 <script>
 export default {
+    middleware: 'auth',
     data() {
         return {
             d:'嘻嘻嘻嘻嘻休息休息',

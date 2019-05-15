@@ -1,6 +1,10 @@
 import Koa from 'koa'
 import { Nuxt, Builder } from 'nuxt'
 import session from 'koa-session'
+import router from './router/index'
+import koaBody from 'koa-body'
+import json from 'koa-json'
+
 async function start () {
   const app = new Koa()
   const host = process.env.HOST || '0.0.0.0'
@@ -18,7 +22,12 @@ async function start () {
     const builder = new Builder(nuxt)
     await builder.build()
   }
-
+  app.use(koaBody());
+  
+  
+  
+  app.use(json())
+  app.use(router.routes(), router.allowedMethods());
   app.keys = ['kAawRD9G3uJWdV']
 
   const CONFIG = {
@@ -33,15 +42,16 @@ async function start () {
     rolling: false /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. default is false **/
   }
   app.use(session(CONFIG, app))
-
-
   app.use(ctx => {
     ctx.status = 200
     ctx.respond = false // Mark request as handled for Koa
-    ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
+    ctx.body = ctx.request.body;
+    //ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
     ctx.req.session = ctx.session
     nuxt.render(ctx.req, ctx.res)
   })
+  
+  
 
   app.listen(port, host)
   console.log('Server listening on ' + host + ':' + port) // eslint-disable-line no-console

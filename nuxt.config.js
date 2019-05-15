@@ -43,6 +43,7 @@ module.exports = {
         }
       },
       router: {
+       
         extendRoutes (routes) {
           routes.push(
             {
